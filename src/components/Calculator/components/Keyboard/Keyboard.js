@@ -4,35 +4,35 @@ import Button from './components/Button'
 import styles from './StyleSheet'
 
 const Keyboard = (props) => (
-    <View style={{flex: props.size}}>
+    <View style={{ flex: props.size }}>
         <View style={props.buttonContainerStyle}>
-            <Button onPress={() => props.onClearPress()} title='AC'/>
-            <Button onPress={() => props.onOperatorPress('+/-')} title='±'/>
-            <Button onPress={() => props.onOperatorPress('%')} title='%'/>
-            <Button onPress={() => props.onOperatorPress(':')} title='÷'/>
+            <Button title='AC' onPress={() => props.onClearPress()} />
+            <Button title='±' onPress={() => props.onOperatorPress('+/-')} />
+            <Button title='%' onPress={() => props.onOperatorPress('%')} />
+            <Button isOperator title='÷' onPress={() => props.onOperatorPress(':')} />
         </View>
         <View style={props.buttonContainerStyle}>
-            <Button onPress={() => props.onNumberPress('7')} title='7'/>
-            <Button onPress={() => props.onNumberPress('8')} title='8'/>
-            <Button onPress={() => props.onNumberPress('9')} title='9'/>
-            <Button onPress={() => props.onOperatorPress('x')} title='×'/>
+            <Button title='7' onPress={() => props.onNumberPress('7')} />
+            <Button title='8' onPress={() => props.onNumberPress('8')} />
+            <Button title='9' onPress={() => props.onNumberPress('9')} />
+            <Button isOperator title='×' onPress={() => props.onOperatorPress('x')} />
         </View>
         <View style={props.buttonContainerStyle}>
-            <Button onPress={() => props.onNumberPress('4')} title='4'/>
-            <Button onPress={() => props.onNumberPress('5')} title='5'/>
-            <Button onPress={() => props.onNumberPress('6')} title='6'/>
-            <Button onPress={() => props.onOperatorPress('-')} title='-'/>
+            <Button title='4' onPress={() => props.onNumberPress('4')} />
+            <Button title='5' onPress={() => props.onNumberPress('5')} />
+            <Button title='6' onPress={() => props.onNumberPress('6')} />
+            <Button isOperator title='-' onPress={() => props.onOperatorPress('-')} />
         </View>
         <View style={props.buttonContainerStyle}>
-            <Button onPress={() => props.onNumberPress('1')} title='1'/>
-            <Button onPress={() => props.onNumberPress('2')} title='2'/>
-            <Button onPress={() => props.onNumberPress('3')} title='3'/>
-            <Button onPress={() => props.onOperatorPress('+')} title='+'/>
+            <Button title='1' onPress={() => props.onNumberPress('1')} />
+            <Button title='2' onPress={() => props.onNumberPress('2')} />
+            <Button title='3' onPress={() => props.onNumberPress('3')} />
+            <Button isOperator title='+' onPress={() => props.onOperatorPress('+')} />
         </View>
         <View style={props.buttonContainerStyle}>
-            <Button style={{flex: 2}} onPress={() => props.onNumberPress('0')} title='0'/>
-            <Button onPress={props.onDotPress} title='.'/>
-            <Button onPress={props.onEqualsPress} title='='/>
+            <Button title='0' style={{ flex: 2 }} onPress={() => props.onNumberPress('0')} />
+            <Button title='.' onPress={props.onDotPress} />
+            <Button isOperator title='=' onPress={props.onEqualsPress} />
         </View>
     </View>
 )
@@ -43,8 +43,8 @@ Keyboard.defaultProps = {
 }
 
 Keyboard.propTypes = {
-   // buttonContainerStyle: React.PropTypes.object.isRequired,
-    size: React.PropTypes.number.isRequired,
+    buttonContainerStyle: View.propTypes.style,
+    size: React.PropTypes.number,
     onOperatorPress: React.PropTypes.func.isRequired,
     onNumberPress: React.PropTypes.func.isRequired,
     onClearPress: React.PropTypes.func.isRequired,

@@ -3,7 +3,7 @@ import { View, TextInput } from 'react-native'
 import styles from './StyleSheet'
 
 const OutputScreen = (props) => (
-    <View style={{flex: props.size}}>
+    <View style={{ flex: props.size }}>
         <TextInput
             editable={false}
             style={props.style}
@@ -19,8 +19,8 @@ OutputScreen.defaultProps = {
 }
 
 OutputScreen.propTypes = {
-    size: React.PropTypes.number.isRequired,
-    //style: React.PropTypes.object.isRequired,
+    size: React.PropTypes.number,
+    style: TextInput.propTypes.style,
     onChange: React.PropTypes.func.isRequired,
     value: React.PropTypes.string.isRequired
 }

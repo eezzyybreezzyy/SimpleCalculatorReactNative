@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   button: {
     flex: 1,
     justifyContent: 'center',
@@ -13,6 +13,9 @@ styles = StyleSheet.create({
     },
     shadowRadius: 10,
     shadowOpacity: 0.25
+  },
+  operatorButton: {
+    backgroundColor: '#C2793B'
   },
   buttonTitle: {
     color: '#FFFFFF',

@@ -2,25 +2,40 @@ import React from 'react'
 import { TouchableHighlight, Text } from 'react-native'
 import styles from './StyleSheet'
 
-const Button = (props) => (
-  <TouchableHighlight
-    style={[styles.button, props.style]}
-    onPress={props.onPress}
-    underlayColor={props.underlayColor}>
-    <Text style={props.titleStyle}>
+const buttonUnderlayColor = '#247075'
+const operatorButtonUnderlayColor = '#A65E21'
+
+const Button = (props) => {
+  let style = props.style
+  let underlayColor = props.underlayColor
+
+  if (props.isOperator) {
+    style = styles.operatorButton
+    underlayColor = operatorButtonUnderlayColor
+  }
+
+  return (
+    <TouchableHighlight
+      style={[styles.button, style]}
+      onPress={props.onPress}
+      underlayColor={underlayColor}>
+      <Text style={props.titleStyle}>
         {props.title}
-    </Text>
-  </TouchableHighlight>
-) 
+      </Text>
+    </TouchableHighlight>
+  )
+}
 
 Button.defaultProps = {
+  isOperator: false,
   titleStyle: styles.buttonTitle,
-  underlayColor: '#247075'
+  underlayColor: buttonUnderlayColor
 }
 
 Button.propTypes = {
-  //style: React.PropTypes.object,
-  //titleStyle: React.PropTypes.object,
+  isOperator: React.PropTypes.bool,
+  style: TouchableHighlight.propTypes.style,
+  titleStyle: Text.propTypes.style,
   onPress: React.PropTypes.func.isRequired,
   underlayColor: React.PropTypes.string,
   title: React.PropTypes.string.isRequired
