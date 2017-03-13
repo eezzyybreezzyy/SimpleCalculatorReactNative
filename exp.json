@@ -1,6 +1,6 @@
 {
   "name": "Simple Calculator",
-  "description": "A simple calculator app for iOS an Android built with react native",
+  "description": "A simple calculator app for iOS and Android built with react native and exponent",
   "slug": "SimpleCalculatorReactNative",
   "privacy": "public",
   "sdkVersion": "12.0.0",
