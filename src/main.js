@@ -1,4 +1,4 @@
-import Exponent from 'exponent'
+import Expo from 'expo'
 import CalculatorContainer from './containers/CalculatorContainer'
 
-Exponent.registerRootComponent(CalculatorContainer)
+Expo.registerRootComponent(CalculatorContainer)
