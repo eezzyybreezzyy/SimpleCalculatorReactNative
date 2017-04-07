@@ -35,38 +35,48 @@ class CalculatorContainer extends React.Component {
 
   handleOperatorPress(op) {
     if (this.state.value) {
-      if (op === '+/-') {
-        result = -1 * this.state.value
-        this.setState({ value: result.toString() })
-      } else if (op === '%') {
-        result = parseFloat(this.state.value) / 100
-        this.setState({ value: result.toString() })
-      } else {
-        this.setState({ operation: op, leftOperand: parseFloat(this.state.value), value: '' })
+      let { operation, leftOperand } = this.state
+      let value = ''
+      switch (op) {
+        case '±':
+          value += -this.state.value
+          break
+        case '%':
+          value += this.state.value / 100
+          break
+        default:
+          operation = op
+          leftOperand = this.state.value
+          break
       }
+      this.setState({ operation, leftOperand, value })
     }
   }
 
   handleEqualsPress() {
     if (this.state.value && this.state.operation) {
+      const { leftOperand: l, value: r } = this.state
+      let result = 0
       switch (this.state.operation) {
         case '+':
-          result = this.state.leftOperand + parseFloat(this.state.value)
+          result = +l + +r
           break
         case '-':
-          result = this.state.leftOperand - parseFloat(this.state.value)
+          result = l - r
           break
         case 'x':
-          result = this.state.leftOperand * parseFloat(this.state.value)
+          result = l * r
           break
-        case ':':
-          result = this.state.leftOperand / parseFloat(this.state.value)
-          break
-        case '%':
-          result = this.state.leftOperand / 100
+        case '÷':
+          result = l / r
           break
       }
-      this.setState({ operation: '', leftOperand: '', value: result.toString() })
+      result = +result.toFixed(10)
+      this.setState({
+        operation: '',
+        leftOperand: '',
+        value: result.toString()
+      })
     }
   }
 

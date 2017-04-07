@@ -6,14 +6,14 @@ import styles from './StyleSheet'
 const Calculator = (props) => (
   <View style={styles.container}>
     <OutputScreen
-      onChange={() => props.onOutputChange}
+      onChange={props.onOutputChange}
       value={props.outputValue} />
     <Keyboard
-      onNumberPress={(number) => props.onNumberPress(number)}
-      onOperatorPress={(op) => props.onOperatorPress(op)}
-      onDotPress={() => props.onDotPress()}
-      onEqualsPress={() => props.onEqualsPress()}
-      onClearPress={() => props.onClearPress()} />
+      onNumberPress={props.onNumberPress}
+      onOperatorPress={props.onOperatorPress}
+      onDotPress={props.onDotPress}
+      onEqualsPress={props.onEqualsPress}
+      onClearPress={props.onClearPress} />
   </View>
 )
 
